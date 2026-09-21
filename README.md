@@ -1,19 +1,42 @@
 # Pizza Delivery Web Application
 
-A full-stack pizza ordering application built for the OIBSIP Web Development & Designing internship.
+A full-stack pizza ordering application built as part of the OIBSIP Web Development & Designing internship.
 
-The project has separate customer and admin areas. Customers can create an account, build a pizza, place an order, use the test payment flow, and check order status. Admins can manage inventory and update order status.
+The application has two sides: a customer area for creating pizzas and placing orders, and an admin area for managing inventory and updating order progress.
+
+## What the project includes
+
+### Customer side
+- User registration and login
+- Forgot-password and reset-password flow
+- Step-by-step pizza builder
+- Base, sauce, cheese and vegetable selection
+- Order summary before checkout
+- Test-mode payment confirmation
+- Order history and status tracking
+
+### Admin side
+- Separate admin login
+- Inventory dashboard
+- Stock updates
+- Low-stock indicators
+- Customer order list
+- Order status updates
 
 ## Tech stack
 
+**Frontend**
 - React.js
 - React Router
 - Axios
+- CSS
+
+**Backend**
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-- JWT
+- JWT authentication
 - bcryptjs
 - Nodemailer
 - node-cron
@@ -21,65 +44,61 @@ The project has separate customer and admin areas. Customers can create an accou
 ## Project structure
 
 ```
-frontend/
-  src/
-    api/
-    components/
-    context/
-    pages/
-    App.js
-    index.js
-    styles.css
-
-backend/
-  config/
-  middleware/
-  models/
-  routes/
-  utils/
-  server.js
+OIBSIP-/
+├── frontend/
+│   ├── public/
+│   └── src/
+│       ├── api/
+│       ├── components/
+│       ├── context/
+│       ├── pages/
+│       ├── App.js
+│       ├── index.js
+│       └── styles.css
+│
+├── backend/
+│   ├── config/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── utils/
+│   ├── .env.example
+│   └── server.js
+│
+├── .gitignore
+└── README.md
 ```
 
-## Main features
+## Getting started
 
-### Customer
-- Registration and login
-- Forgot and reset password
-- Pizza builder for base, sauce, cheese and vegetables
-- Order summary
-- Test-mode payment confirmation
-- Order history and status updates
+### 1. Clone the repository
 
-### Admin
-- Separate admin login
-- Inventory view and stock updates
-- Low-stock highlighting
-- Order list
-- Order status updates
+```bash
+git clone https://github.com/faisalshaik78/OIBSIP-.git
+cd OIBSIP-
+```
 
-## Run locally
-
-### Backend
+### 2. Set up the backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Copy `.env.example` to `.env` and add your MongoDB and email settings.
+Create a `.env` file from `.env.example` and add your local MongoDB, JWT and email configuration.
 
-Then:
+Start the backend:
 
 ```bash
 npm run seed
 npm run dev
 ```
 
-The API runs on port 5000 by default.
+The API uses port **5000** by default.
 
-### Frontend
+### 3. Set up the frontend
 
-Open another terminal:
+Open a second terminal:
 
 ```bash
 cd frontend
@@ -87,16 +106,21 @@ npm install
 npm start
 ```
 
-The React app runs on port 3000 by default.
+The React development server uses port **3000** by default.
 
-## Notes
+## Important notes
 
-The payment flow in this project is a test/demo flow. It creates a test payment id instead of processing a real payment.
+- The payment step is a **test/demo flow** and does not process a real payment.
+- Order status is refreshed by polling the API every 8 seconds.
+- The seed script adds the initial admin account and starter inventory for local development.
+- Do not commit your real `.env` file or application secrets. The repository ignores environment files.
 
-Order status is refreshed by polling the API every 8 seconds.
+## Project layout
 
-The seed script creates the initial admin account and starter inventory for local testing.
+The frontend is kept separate from the backend so each part can be installed and developed independently. Backend routes are grouped by authentication, orders and admin operations, while MongoDB models are kept in the `models` directory.
 
 ## Author
 
-Shaik Faisal
+**Shaik Faisal**
+
+GitHub: https://github.com/faisalshaik78
