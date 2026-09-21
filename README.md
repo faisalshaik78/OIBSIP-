@@ -1,127 +1,102 @@
 # Pizza Delivery Web Application
 
-A full-stack pizza ordering project developed as part of the **OIBSIP Web Development & Designing – Level 3** internship task.
+A full-stack pizza ordering application built for the OIBSIP Web Development & Designing internship.
 
-The project focuses on a practical ordering workflow with customer authentication, pizza customization, order management, inventory handling, and an admin workflow.
+The project has separate customer and admin areas. Customers can create an account, build a pizza, place an order, use the test payment flow, and check order status. Admins can manage inventory and update order status.
 
-## Project at a glance
+## Tech stack
 
-| Area | Details |
-|---|---|
-| Frontend | React.js, React Router, Axios |
-| Backend | Node.js, Express.js |
-| Database | MongoDB, Mongoose |
-| Authentication | JWT, bcrypt |
-| Email | Nodemailer |
-| Scheduled jobs | node-cron |
-| Project type | Full-stack web application |
+- React.js
+- React Router
+- Axios
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
+- Nodemailer
+- node-cron
 
-## Key features
+## Project structure
 
-- Customer registration and login
-- Protected customer and admin routes
-- Custom pizza builder
-- Ingredient and inventory management
-- Order creation and order tracking
-- Admin order-status workflow
-- Password-reset email flow
-- Low-stock notification job
-- Test/demo payment flow
+```
+frontend/
+  src/
+    api/
+    components/
+    context/
+    pages/
+    App.js
+    index.js
+    styles.css
 
-## Repository structure
-
-```text
-OIBSIP-/
-├── OIBSIP-WebDev-L3-PizzaDelivery.zip   # Project source archive
-├── frontend/
-│   └── README.md                         # Frontend documentation
-├── backend/
-│   └── README.md                         # Backend documentation
-└── README.md
+backend/
+  config/
+  middleware/
+  models/
+  routes/
+  utils/
+  server.js
 ```
 
-> **Repository note:** The current GitHub repository stores the application source as a ZIP archive. The `frontend/` and `backend/` directories currently contain documentation only. They are intentionally not presented as extracted source code.
+## Main features
 
-## Running the project
+### Customer
+- Registration and login
+- Forgot and reset password
+- Pizza builder for base, sauce, cheese and vegetables
+- Order summary
+- Test-mode payment confirmation
+- Order history and status updates
 
-The runnable application is packaged in:
+### Admin
+- Separate admin login
+- Inventory view and stock updates
+- Low-stock highlighting
+- Order list
+- Order status updates
 
-`OIBSIP-WebDev-L3-PizzaDelivery.zip`
+## Run locally
 
-Extract the archive locally, then follow the setup instructions in the project's frontend/backend folders.
-
-The documented development setup uses:
+### Backend
 
 ```bash
-# Backend
 cd backend
 npm install
-cp .env.example .env
+```
+
+Copy `.env.example` to `.env` and add your MongoDB and email settings.
+
+Then:
+
+```bash
 npm run seed
 npm run dev
+```
 
-# Frontend
+The API runs on port 5000 by default.
+
+### Frontend
+
+Open another terminal:
+
+```bash
 cd frontend
 npm install
 npm start
 ```
 
-Typical local endpoints:
+The React app runs on port 3000 by default.
 
-- Frontend: `http://localhost:3000`
-- Backend: `http://localhost:5000`
+## Notes
 
-Do not commit real API keys, database credentials, JWT secrets, email credentials, or production configuration.
+The payment flow in this project is a test/demo flow. It creates a test payment id instead of processing a real payment.
 
-## Technical highlights
+Order status is refreshed by polling the API every 8 seconds.
 
-### Authentication
-JWT-based authentication is used for protected application routes, with bcrypt used for password handling.
-
-### Ordering
-Customers can build a pizza, submit an order, and track the order through defined status stages.
-
-### Administration
-The application includes a separate admin workflow for managing orders and inventory.
-
-### Inventory
-Ingredients are connected to inventory logic, including stock reduction and low-stock notification handling.
-
-### Email and scheduled tasks
-Nodemailer supports email workflows, while node-cron is used for scheduled low-stock checks.
-
-## What I worked on
-
-This project demonstrates practical experience with:
-
-- React component and route-based UI development
-- REST API integration
-- Node.js and Express.js backend development
-- MongoDB/Mongoose data handling
-- Authentication and role-based access
-- CRUD operations
-- Frontend/backend integration
-- Basic application security practices
-- Debugging and local development workflows
-
-## Future improvements
-
-- Extract the source archive into the repository so the code can be reviewed directly on GitHub
-- Add automated frontend/backend tests
-- Add CI checks with GitHub Actions
-- Add a live deployment link
-- Add real captured application screenshots
-- Add API documentation
-
-## Internship
-
-**OIBSIP — Web Development & Designing Level 3**
-
-This repository contains the pizza-delivery project submission and supporting documentation.
+The seed script creates the initial admin account and starter inventory for local testing.
 
 ## Author
 
-**Shaik Faisal**
-
-- GitHub: https://github.com/faisalshaik78
-- LinkedIn: https://www.linkedin.com/in/shaik-faisal-0176b9228
+Shaik Faisal
