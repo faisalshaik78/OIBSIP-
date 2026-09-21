@@ -1,28 +1,47 @@
 # Backend
 
-Express API for the Pizza Delivery application.
+Express API for the Pizza Delivery Web Application.
 
-## Includes
+## Main responsibilities
 
 - User and admin authentication
-- JWT-based protected routes
+- JWT-protected routes
 - MongoDB models for users, admins, orders and inventory
-- Pizza order creation and test payment confirmation
+- Pizza order creation
+- Test payment confirmation
 - Inventory updates
 - Password reset email
 - Low-stock email checks with node-cron
 
-## Run
+## Run locally
 
 ```bash
+cd backend
 npm install
 ```
 
-Copy `.env.example` to `.env`, configure the values, then run:
+Copy `.env.example` to `.env` and configure the local values.
+
+Then run:
 
 ```bash
 npm run seed
 npm run dev
 ```
 
-The API runs on port 5000 by default.
+The API uses port 5000 by default.
+
+## Structure
+
+```
+backend/
+├── config/
+├── middleware/
+├── models/
+├── routes/
+├── utils/
+├── .env.example
+└── server.js
+```
+
+Keep real credentials and environment values out of GitHub.
