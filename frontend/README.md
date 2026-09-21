@@ -1,22 +1,38 @@
 # Frontend
 
-React client for the Pizza Delivery application.
+React frontend for the Pizza Delivery Web Application.
 
-## Includes
+## Main areas
 
-- Customer registration and login
+- User registration and login
 - Password reset screens
-- Pizza builder
+- Pizza builder and order summary
 - Customer order dashboard
 - Admin login
 - Admin inventory and order dashboard
-- Protected routes and session state
+- Protected routes and authentication state
 
-## Run
+## Run locally
 
 ```bash
+cd frontend
 npm install
 npm start
 ```
 
-The frontend expects the API at `http://localhost:5000/api` unless `REACT_APP_API_URL` is set.
+The development server uses port 3000 by default.
+
+The frontend expects the backend API at `http://localhost:5000/api`, unless `REACT_APP_API_URL` is configured.
+
+## Structure
+
+```
+src/
+├── api/
+├── components/
+├── context/
+├── pages/
+├── App.js
+├── index.js
+└── styles.css
+```
