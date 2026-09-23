@@ -2,40 +2,37 @@
 
 A full-stack pizza ordering application built as part of the OIBSIP Web Development & Designing internship.
 
-The application has two sides: a customer area for creating pizzas and placing orders, and an admin area for managing inventory and updating order progress.
+This project includes a customer-facing ordering flow and an admin dashboard for inventory and order management. It is designed to be easy to run locally, with a Node.js + Express backend and a React frontend.
 
-## What the project includes
+## Features
 
 ### Customer side
 - User registration and login
-- Forgot-password and reset-password flow
+- Password reset flow
 - Step-by-step pizza builder
-- Base, sauce, cheese and vegetable selection
+- Base, sauce, cheese, and vegetable selection
 - Order summary before checkout
-- Test-mode payment confirmation
-- Order history and status tracking
+- Demo payment flow
+- Order history and live status tracking
 
 ### Admin side
 - Separate admin login
-- Inventory dashboard
-- Stock updates
-- Low-stock indicators
-- Customer order list
-- Order status updates
+- Inventory dashboard with stock updates
+- Low-stock alerts via email automation
+- Order list and progress updates
 
 ## Tech stack
 
-**Frontend**
+### Frontend
 - React.js
 - React Router
 - Axios
 - CSS
 
-**Backend**
+### Backend
 - Node.js
 - Express.js
-- MongoDB
-- Mongoose
+- MongoDB + Mongoose
 - JWT authentication
 - bcryptjs
 - Nodemailer
@@ -43,19 +40,8 @@ The application has two sides: a customer area for creating pizzas and placing o
 
 ## Project structure
 
-```
+```bash
 OIBSIP-/
-├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── api/
-│       ├── components/
-│       ├── context/
-│       ├── pages/
-│       ├── App.js
-│       ├── index.js
-│       └── styles.css
-│
 ├── backend/
 │   ├── config/
 │   ├── middleware/
@@ -63,13 +49,20 @@ OIBSIP-/
 │   ├── routes/
 │   ├── utils/
 │   ├── .env.example
+│   ├── package.json
 │   └── server.js
-│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── README.md
+├── docs/
 ├── .gitignore
-└── README.md
+├── README.md
+└── package-lock.json
 ```
 
-## Getting started
+## Local setup
 
 ### 1. Clone the repository
 
@@ -85,20 +78,20 @@ cd backend
 npm install
 ```
 
-Create a `.env` file from `.env.example` and add your local MongoDB, JWT and email configuration.
+Create a `.env` file using `.env.example` and add your MongoDB, JWT, and email settings.
 
-Start the backend:
+Then run:
 
 ```bash
 npm run seed
 npm run dev
 ```
 
-The API uses port **5000** by default.
+The backend runs on port `5000` by default.
 
 ### 3. Set up the frontend
 
-Open a second terminal:
+Open a second terminal and run:
 
 ```bash
 cd frontend
@@ -106,21 +99,17 @@ npm install
 npm start
 ```
 
-The React development server uses port **3000** by default.
+The frontend runs on port `3000` by default.
 
-## Important notes
+## Notes
 
-- The payment step is a **test/demo flow** and does not process a real payment.
-- Order status is refreshed by polling the API every 8 seconds.
-- The seed script adds the initial admin account and starter inventory for local development.
-- Do not commit your real `.env` file or application secrets. The repository ignores environment files.
-
-## Project layout
-
-The frontend is kept separate from the backend so each part can be installed and developed independently. Backend routes are grouped by authentication, orders and admin operations, while MongoDB models are kept in the `models` directory.
+- The payment step is a demo/test flow and does not process a real payment.
+- Inventory and order updates are refreshed through API polling.
+- The app uses a seeded admin account and starter stock values for local development.
+- Real environment variables and secrets should never be committed to GitHub.
 
 ## Author
 
-**Shaik Faisal**
+Shaik Faisal
 
 GitHub: https://github.com/faisalshaik78
