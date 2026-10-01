@@ -2,45 +2,50 @@
 
 A full-stack pizza ordering application built as part of the OIBSIP Web Development & Designing internship.
 
-This project includes a customer-facing ordering flow and an admin dashboard for inventory and order management. It is designed to be easy to run locally, with a Node.js + Express backend and a React frontend.
+The project includes separate customer and admin workflows, with a React frontend and Node.js/Express backend connected to MongoDB.
 
 ## Features
 
-### Customer side
-- User registration and login
+### Customer
+
+- Registration and login
 - Password reset flow
 - Step-by-step pizza builder
 - Base, sauce, cheese, and vegetable selection
-- Order summary before checkout
-- Demo payment flow
-- Order history and live status tracking
+- Order summary
+- Demo checkout flow
+- Order history
+- Order status tracking
 
-### Admin side
-- Separate admin login
-- Inventory dashboard with stock updates
-- Low-stock alerts via email automation
+### Admin
+
+- Admin login
+- Inventory dashboard
+- Stock updates
+- Low-stock email alerts
 - Order list and progress updates
 
-## Tech stack
+## Tech Stack
 
-### Frontend
+**Frontend**
 - React.js
 - React Router
 - Axios
 - CSS
 
-### Backend
+**Backend**
 - Node.js
 - Express.js
-- MongoDB + Mongoose
-- JWT authentication
+- MongoDB
+- Mongoose
+- JWT
 - bcryptjs
 - Nodemailer
 - node-cron
 
-## Project structure
+## Project Structure
 
-```bash
+```text
 OIBSIP-/
 ├── backend/
 │   ├── config/
@@ -62,36 +67,29 @@ OIBSIP-/
 └── package-lock.json
 ```
 
-## Local setup
+## Run Locally
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/faisalshaik78/OIBSIP-.git
-cd OIBSIP-
-```
-
-### 2. Set up the backend
+### Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file using `.env.example` and add your MongoDB, JWT, and email settings.
+Create a `.env` file using `.env.example`, then add the required MongoDB, JWT, and email configuration.
 
-Then run:
+Start the backend:
 
 ```bash
 npm run seed
 npm run dev
 ```
 
-The backend runs on port `5000` by default.
+The backend uses port `5000` by default.
 
-### 3. Set up the frontend
+### Frontend
 
-Open a second terminal and run:
+Open another terminal:
 
 ```bash
 cd frontend
@@ -99,17 +97,26 @@ npm install
 npm start
 ```
 
-The frontend runs on port `3000` by default.
+The frontend uses port `3000` by default.
 
-## Notes
+## Important Notes
 
-- The payment step is a demo/test flow and does not process a real payment.
-- Inventory and order updates are refreshed through API polling.
-- The app uses a seeded admin account and starter stock values for local development.
-- Real environment variables and secrets should never be committed to GitHub.
+- The payment flow is a demo and does not process real payments.
+- Inventory and order updates use API polling.
+- Starter data is provided for local development.
+- Never commit real environment variables or secrets.
+
+## What I Practiced
+
+- Building a full-stack React application
+- Creating REST APIs with Express
+- Connecting an application to MongoDB
+- Implementing authentication and protected routes
+- Managing customer and admin workflows
+- Working with email notifications and scheduled tasks
 
 ## Author
 
-Shaik Faisal
+**SHAIK FAISAL**
 
-GitHub: https://github.com/faisalshaik78
+[GitHub](https://github.com/faisalshaik78)
